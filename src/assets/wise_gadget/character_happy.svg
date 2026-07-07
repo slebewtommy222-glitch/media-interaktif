@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <ellipse cx="200" cy="550" rx="90" ry="15" fill="#1a1a1a" opacity="0.15" />
+  <rect x="165" y="450" width="25" height="70" rx="10" fill="#FFE0B2" stroke="#1a1a1a" stroke-width="4" />
+  <rect x="210" y="450" width="25" height="70" rx="10" fill="#FFE0B2" stroke="#1a1a1a" stroke-width="4" />
+  <rect x="165" y="495" width="25" height="15" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="4" />
+  <rect x="210" y="495" width="25" height="15" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="4" />
+  <rect x="150" y="515" width="45" height="22" rx="8" fill="#5D4037" stroke="#1a1a1a" stroke-width="4" />
+  <rect x="205" y="515" width="45" height="22" rx="8" fill="#5D4037" stroke="#1a1a1a" stroke-width="4" />
+  <rect x="150" y="380" width="100" height="80" rx="12" fill="#2563eb" stroke="#1a1a1a" stroke-width="4" />
+  <rect x="145" y="270" width="110" height="120" rx="15" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="4" />
+  <path d="M 145,270 L 145,390 L 255,390 L 255,270 L 220,270 L 200,310 L 180,270 Z" fill="#2563eb" stroke="#1a1a1a" stroke-width="4" />
+  <path d="M 195,290 L 205,290 L 210,340 L 200,355 L 190,340 Z" fill="#ef4444" stroke="#1a1a1a" stroke-width="3" />
+  <path d="M 145,285 L 120,315 L 135,330 L 145,310 Z" fill="#2563eb" stroke="#1a1a1a" stroke-width="4" />
+  <rect x="110" y="320" width="20" height="65" rx="10" fill="#FFE0B2" stroke="#1a1a1a" stroke-width="4" />
+  <circle cx="120" cy="385" r="14" fill="#FFE0B2" stroke="#1a1a1a" stroke-width="4" />
+  <path d="M 255,290 L 285,280 L 275,260 L 255,280 Z" fill="#2563eb" stroke="#1a1a1a" stroke-width="4" />
+  <path d="M 270,270 L 300,230 L 314,240 L 284,280 Z" fill="#FFE0B2" stroke="#1a1a1a" stroke-width="4" />
+  <circle cx="305" cy="225" r="15" fill="#FFE0B2" stroke="#1a1a1a" stroke-width="4" />
+  <path d="M 298,215 Q 295,190 305,190 Q 312,190 310,215 Z" fill="#FFE0B2" stroke="#1a1a1a" stroke-width="3" />
+  <path d="M 315,218 C 322,221 322,228 315,228" fill="none" stroke="#1a1a1a" stroke-width="3" />
+  <path d="M 315,226 C 322,229 322,236 315,236" fill="none" stroke="#1a1a1a" stroke-width="3" />
+  <rect x="185" y="235" width="30" height="40" fill="#FFE0B2" stroke="#1a1a1a" stroke-width="4" />
+  <circle cx="200" cy="180" r="85" fill="#FFE0B2" stroke="#1a1a1a" stroke-width="4" />
+  <circle cx="115" cy="180" r="15" fill="#FFE0B2" stroke="#1a1a1a" stroke-width="4" />
+  <circle cx="285" cy="180" r="15" fill="#FFE0B2" stroke="#1a1a1a" stroke-width="4" />
+  <path d="M 120,180 C 110,95 290,95 280,180 Z" fill="#5D4037" stroke="#1a1a1a" stroke-width="4" />
+  <path d="M 120,145 C 140,160 170,160 180,145 C 190,160 210,160 220,145 C 230,160 260,160 280,145 C 280,120 120,120 120,145 Z" fill="#5D4037" stroke="#1a1a1a" stroke-width="4" />
+  <path d="M 122,130 C 130,50 270,50 278,130 Z" fill="#ef4444" stroke="#1a1a1a" stroke-width="4" />
+  <path d="M 108,130 Q 200,105 292,130 Q 200,148 108,130" fill="#ffd600" stroke="#1a1a1a" stroke-width="4" />
+  <circle cx="200" cy="80" r="8" fill="#ef4444" stroke="#1a1a1a" stroke-width="3" />
+  <ellipse cx="165" cy="180" rx="10" ry="14" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="3.5" />
+  <circle cx="166" cy="180" r="6.5" fill="#1e3a8a" />
+  <circle cx="163" cy="176" r="2.5" fill="#FFFFFF" />
+  <ellipse cx="235" cy="180" rx="10" ry="14" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="3.5" />
+  <circle cx="234" cy="180" r="6.5" fill="#1e3a8a" />
+  <circle cx="231" cy="176" r="2.5" fill="#FFFFFF" />
+  <path d="M 148,148 Q 165,140 182,148" fill="none" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+  <path d="M 218,148 Q 235,140 252,148" fill="none" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+  <circle cx="140" cy="205" r="10" fill="#f87171" opacity="0.6" />
+  <circle cx="260" cy="205" r="10" fill="#f87171" opacity="0.6" />
+  <path d="M 196,198 Q 200,193 204,198" fill="none" stroke="#1a1a1a" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M 180,210 Q 200,245 220,210 Z" fill="#ef4444" stroke="#1a1a1a" stroke-width="4.5" stroke-linejoin="round" />
+  <path d="M 186,218 Q 200,225 214,218 Q 200,245 186,218" fill="#fca5a5" />
+</svg>

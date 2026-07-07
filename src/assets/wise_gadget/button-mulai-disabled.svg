@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lilita+One&amp;display=swap');
+      .font-lilita { font-family: 'Lilita One', cursive; }
+    </style>
+  </defs>
+  <rect x="10" y="10" width="268" height="50" rx="14" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="4" />
+  <text x="144" y="42" text-anchor="middle" fill="#9CA3AF" font-size="24" class="font-lilita">MULAI! 🚀</text>
+</svg>

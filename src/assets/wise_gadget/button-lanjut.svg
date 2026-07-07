@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 70" width="200" height="70">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lilita+One&amp;display=swap');
+      .font-lilita { font-family: 'Lilita One', cursive; }
+    </style>
+  </defs>
+  <rect x="14" y="14" width="170" height="42" rx="12" fill="#1a1a1a" />
+  <rect x="8" y="8" width="170" height="42" rx="12" fill="#4CAF50" stroke="#1a1a1a" stroke-width="4.5" />
+  <text x="93" y="36" text-anchor="middle" fill="#FFFFFF" font-size="20" class="font-lilita">LANJUT ➔</text>
+</svg>

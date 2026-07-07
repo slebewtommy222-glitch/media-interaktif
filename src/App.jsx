@@ -6,44 +6,51 @@ import homeBtnImg from './assets/home_button.svg';
 import trophyBtnImg from './assets/trophy_button.svg';
 import safetyBtnImg from './assets/safety_button.svg';
 
-// Cartoon Neo-Brutalist Assets — Home
-import cartoonBg from './assets/cartoon_home/background.png';
-import cartoonPlayBtn from './assets/cartoon_home/play_button.png';
-import cartoonStar from './assets/cartoon_home/star.png';
-import cartoonCloud from './assets/cartoon_home/cloud.png';
-import cartoonCharacter from './assets/cartoon_home/character.png';
-import ornamentPhone from './assets/cartoon_home/ornament_phone.png';
-import ornamentTablet from './assets/cartoon_home/ornament_tablet.png';
+// Cartoon Neo-Brutalist Assets
+import cartoonBg from './assets/wise_gadget/bg_quiz.png';
+import cartoonStar from './assets/wise_gadget/star_large.png';
+import cartoonStarMedium from './assets/wise_gadget/star_medium.png';
+import cartoonStarSmall from './assets/wise_gadget/star_small.png';
+import cartoonCloud from './assets/wise_gadget/cloud_white.png';
+import cartoonCloudBlue from './assets/wise_gadget/cloud_blue.png';
 
-// Name Input Screen Assets
-import niOrnamentPhone from './assets/name_input/ornament_corner_phone.png';
-import niOrnamentTablet from './assets/name_input/ornament_corner_tablet.png';
-import niOrnamentStar from './assets/name_input/ornament_star_pink.png';
+// Characters
+import charNeutral from './assets/wise_gadget/character_neutral.png';
+import charHappy from './assets/wise_gadget/character_happy.png';
+import charThinking from './assets/wise_gadget/character_thinking.png';
+import charWinning from './assets/wise_gadget/character_winning.png';
 
-// Quiz Screen Assets
-import qProgressBarTrack from './assets/quiz/progress_bar_track.png';
-import qQuestionCard from './assets/quiz/question_card.png';
-import qChoiceANormal from './assets/quiz/choice_a_normal.png';
-import qChoiceAHover from './assets/quiz/choice_a_hover.png';
-import qChoiceBNormal from './assets/quiz/choice_b_normal.png';
-import qChoiceBHover from './assets/quiz/choice_b_hover.png';
-import qNumberBadge from './assets/quiz/number_badge.png';
+// Ornaments
+import ornamentPhone from './assets/wise_gadget/icon_smartphone.png';
+import ornamentTablet from './assets/wise_gadget/icon_tablet.png';
+import ornamentLaptop from './assets/wise_gadget/icon_laptop.png';
+import ornamentClock from './assets/wise_gadget/icon_clock.png';
+import ornamentEye from './assets/wise_gadget/icon_eye.png';
+import ornamentSleep from './assets/wise_gadget/icon_sleep.png';
+import ornamentFamily from './assets/wise_gadget/icon_family.png';
+import sparkleImg from './assets/wise_gadget/sparkle.png';
 
-// Feedback Modal Assets
-import fCorrectBg from './assets/feedback/correct_modal_bg.png';
-import fCorrectBtn from './assets/feedback/correct_btn.png';
-import fWrongBg from './assets/feedback/wrong_modal_bg.png';
-import fWrongBtn from './assets/feedback/wrong_btn.png';
-import fStarDecor from './assets/feedback/star_decor.png';
-import fSparkleDecor from './assets/feedback/sparkle_decor.png';
+// Buttons
+import buttonPlayNormal from './assets/wise_gadget/button-play-normal.png';
+import buttonPlayHover from './assets/wise_gadget/button-play-hover.png';
+import buttonPlayActive from './assets/wise_gadget/button-play-active.png';
+import buttonMulaiActive from './assets/wise_gadget/button-mulai-active.png';
+import buttonMulaiDisabled from './assets/wise_gadget/button-mulai-disabled.png';
+import buttonChoiceANormal from './assets/wise_gadget/button-pilihan-a-normal.png';
+import buttonChoiceAHover from './assets/wise_gadget/button-pilihan-a-hover.png';
+import buttonChoiceBNormal from './assets/wise_gadget/button-pilihan-b-normal.png';
+import buttonChoiceBHover from './assets/wise_gadget/button-pilihan-b-hover.png';
+import buttonLanjut from './assets/wise_gadget/button-lanjut.png';
+import buttonSelanjutnya from './assets/wise_gadget/button-selanjutnya.png';
+import buttonReset from './assets/wise_gadget/button-reset.png';
+import buttonBatal from './assets/wise_gadget/button-batal.png';
 
-// Leaderboard & Confetti Assets
-import lbTrophyBadge from './assets/leaderboard/trophy_badge.png';
-import lbScoreCard from './assets/leaderboard/score_card.png';
-import lbMedalGold from './assets/leaderboard/medal_gold.png';
-import lbMedalSilver from './assets/leaderboard/medal_silver.png';
-import lbMedalBronze from './assets/leaderboard/medal_bronze.png';
-import lbNextBtn from './assets/leaderboard/next_student_btn.png';
+// UI Components
+import progressBarImg from './assets/wise_gadget/progress-bar.png';
+import toggleOnImg from './assets/wise_gadget/toggle-on.png';
+import toggleOffImg from './assets/wise_gadget/toggle-off.png';
+import badgeNomorImg from './assets/wise_gadget/badge-nomor.png';
+import inputTeksImg from './assets/wise_gadget/input-teks.png';
 import cfRectRed from './assets/leaderboard/confetti_rect_red.png';
 import cfRectYellow from './assets/leaderboard/confetti_rect_yellow.png';
 import cfRectGreen from './assets/leaderboard/confetti_rect_green.png';
@@ -210,6 +217,28 @@ export default function App() {
   const [showResetSuccess, setShowResetSuccess] = useState(false);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
   const bgMusicRef = useRef(null);
+
+  // Play Button hover/active state
+  const [playButtonSrc, setPlayButtonSrc] = useState(buttonPlayNormal);
+
+  // Choice button hover state index
+  const [hoveredChoice, setHoveredChoice] = useState(null);
+
+  // Dynamic mascot character selector based on game screen & feedback modal state
+  const getActiveCharacter = () => {
+    if (screen === 'home' || screen === 'nameInput') {
+      return charNeutral;
+    }
+    if (screen === 'quiz') {
+      if (feedbackModal === 'correct') return charHappy;
+      if (feedbackModal === 'wrong') return charThinking;
+      return charThinking;
+    }
+    if (screen === 'leaderboard') {
+      return charWinning;
+    }
+    return charNeutral;
+  };
 
   // Initialize Background Music
   useEffect(() => {
@@ -416,25 +445,26 @@ export default function App() {
             {/* Cloud Decorations */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
               <img src={cartoonCloud} alt="Awan" className="absolute w-32 md:w-44 animate-float-ud img-transparent-asset" style={{ top: '8%', left: '8%', animationDelay: '0s', animationDuration: '4s' }} />
-              <img src={cartoonCloud} alt="Awan" className="absolute w-24 md:w-36 animate-float-ud img-transparent-asset" style={{ top: '22%', right: '12%', animationDelay: '1.5s', animationDuration: '4.5s' }} />
+              <img src={cartoonCloudBlue} alt="Awan" className="absolute w-24 md:w-36 animate-float-ud img-transparent-asset" style={{ top: '22%', right: '12%', animationDelay: '1.5s', animationDuration: '4.5s' }} />
               <img src={cartoonCloud} alt="Awan" className="absolute w-28 md:w-40 animate-float-ud img-transparent-asset" style={{ top: '58%', left: '4%', animationDelay: '0.8s', animationDuration: '5s' }} />
             </div>
 
             {/* Star Decorations */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
               <img src={cartoonStar} alt="Bintang" className="absolute w-12 md:w-16 animate-wobble-lr img-transparent-asset" style={{ top: '32%', left: '22%', animationDelay: '0.2s' }} />
-              <img src={cartoonStar} alt="Bintang" className="absolute w-10 md:w-14 animate-wobble-lr img-transparent-asset" style={{ top: '14%', right: '32%', animationDelay: '0.9s' }} />
-              <img src={cartoonStar} alt="Bintang" className="absolute w-14 md:w-18 animate-wobble-lr img-transparent-asset" style={{ bottom: '28%', right: '22%', animationDelay: '1.4s' }} />
+              <img src={cartoonStarMedium} alt="Bintang" className="absolute w-10 md:w-14 animate-wobble-lr img-transparent-asset" style={{ top: '14%', right: '32%', animationDelay: '0.9s' }} />
+              <img src={cartoonStarSmall} alt="Bintang" className="absolute w-14 md:w-18 animate-wobble-lr img-transparent-asset" style={{ bottom: '28%', right: '22%', animationDelay: '1.4s' }} />
             </div>
 
             {/* Gadget Ornaments */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
               <img src={ornamentPhone} alt="Handphone" className="absolute w-12 md:w-16 animate-float-ud img-transparent-asset" style={{ bottom: '35%', left: '15%', animationDelay: '0.5s', animationDuration: '6s' }} />
               <img src={ornamentTablet} alt="Tablet" className="absolute w-16 md:w-22 animate-float-ud img-transparent-asset" style={{ top: '42%', right: '25%', animationDelay: '1.2s', animationDuration: '7s' }} />
+              <img src={ornamentLaptop} alt="Laptop" className="absolute w-16 md:w-22 animate-float-ud img-transparent-asset" style={{ top: '15%', left: '42%', animationDelay: '2s', animationDuration: '8s' }} />
             </div>
 
             {/* Cheerful Kid Character */}
-            <img src={cartoonCharacter} alt="Anak Ceria" className="absolute bottom-0 right-8 w-48 md:w-64 z-10 pointer-events-none animate-float-ud img-transparent-asset" style={{ animationDuration: '5s' }} />
+            <img src={getActiveCharacter()} alt="Anak Ceria" className="absolute bottom-0 right-8 w-48 md:w-64 z-10 pointer-events-none animate-float-ud img-transparent-asset" style={{ animationDuration: '5s' }} />
 
             {/* Flying Particles */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
@@ -478,8 +508,12 @@ export default function App() {
 
               {/* Play Button */}
               <button onClick={handlePlayClick}
-                className="relative focus:outline-none hover:scale-108 active:scale-92 transition-all w-44 h-44 md:w-52 md:h-52 cursor-pointer select-none flex items-center justify-center">
-                <img src={cartoonPlayBtn} alt="Play" className="w-full h-full object-contain" />
+                onMouseEnter={() => setPlayButtonSrc(buttonPlayHover)}
+                onMouseLeave={() => setPlayButtonSrc(buttonPlayNormal)}
+                onMouseDown={() => setPlayButtonSrc(buttonPlayActive)}
+                onMouseUp={() => setPlayButtonSrc(buttonPlayHover)}
+                className="relative focus:outline-none hover:scale-108 active:scale-92 transition-all w-32 h-32 md:w-40 md:h-40 cursor-pointer select-none flex items-center justify-center bg-transparent border-none">
+                <img src={playButtonSrc} alt="Play" className="w-full h-full object-contain" />
                 {/* Glowing pulse ring around the button */}
                 <div className="absolute -inset-2 rounded-full border-4 border-[#FFD600] glow-pulse pointer-events-none" />
               </button>
@@ -503,14 +537,17 @@ export default function App() {
             {/* Floating cloud decorations */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
               <img src={cartoonCloud} alt="" className="absolute w-36 animate-float-ud img-transparent-asset" style={{ top: '6%', left: '5%', animationDelay: '0s', animationDuration: '4s' }} />
-              <img src={cartoonCloud} alt="" className="absolute w-28 animate-float-ud img-transparent-asset" style={{ top: '18%', right: '8%', animationDelay: '1.2s', animationDuration: '5s' }} />
+              <img src={cartoonCloudBlue} alt="" className="absolute w-28 animate-float-ud img-transparent-asset" style={{ top: '18%', right: '8%', animationDelay: '1.2s', animationDuration: '5s' }} />
             </div>
 
             {/* Corner ornaments */}
-            <img src={niOrnamentPhone} alt="" className="absolute bottom-20 left-8 w-14 animate-float-ud img-transparent-asset pointer-events-none z-0" style={{ animationDelay: '0.3s', animationDuration: '5s' }} />
-            <img src={niOrnamentTablet} alt="" className="absolute bottom-20 right-8 w-20 animate-float-ud img-transparent-asset pointer-events-none z-0" style={{ animationDelay: '1s', animationDuration: '6s' }} />
-            <img src={niOrnamentStar} alt="" className="absolute top-28 left-16 w-10 animate-wobble-lr img-transparent-asset pointer-events-none z-0" style={{ animationDelay: '0.5s' }} />
-            <img src={niOrnamentStar} alt="" className="absolute top-36 right-20 w-8 animate-wobble-lr img-transparent-asset pointer-events-none z-0" style={{ animationDelay: '1.3s' }} />
+            <img src={ornamentPhone} alt="" className="absolute bottom-20 left-8 w-14 animate-float-ud img-transparent-asset pointer-events-none z-0" style={{ animationDelay: '0.3s', animationDuration: '5s' }} />
+            <img src={ornamentTablet} alt="" className="absolute bottom-20 right-8 w-20 animate-float-ud img-transparent-asset pointer-events-none z-0" style={{ animationDelay: '1s', animationDuration: '6s' }} />
+            <img src={sparkleImg} alt="" className="absolute top-28 left-16 w-10 animate-wobble-lr img-transparent-asset pointer-events-none z-0" style={{ animationDelay: '0.5s' }} />
+            <img src={sparkleImg} alt="" className="absolute top-36 right-20 w-8 animate-wobble-lr img-transparent-asset pointer-events-none z-0" style={{ animationDelay: '1.3s' }} />
+
+            {/* Mascot Character on Name Input Screen */}
+            <img src={getActiveCharacter()} alt="Mascot" className="hidden lg:block absolute bottom-0 right-4 w-40 z-10 pointer-events-none animate-float-ud img-transparent-asset" style={{ animationDuration: '6s' }} />
 
             {/* Main Card */}
             <div className="relative z-10 w-full max-w-lg px-4">
@@ -520,7 +557,7 @@ export default function App() {
                 {/* Floating decorations on card corners */}
                 <div className="absolute -top-7 -right-5 text-5xl soft-floating">🐻</div>
                 <div className="absolute -top-6 -left-5 text-4xl wobble-anim">
-                  <img src={niOrnamentStar} alt="" className="w-10 img-transparent-asset" />
+                  <img src={sparkleImg} alt="" className="w-10 img-transparent-asset" />
                 </div>
 
                 {/* Title */}
@@ -533,8 +570,9 @@ export default function App() {
                 </p>
 
                 {/* Input Box */}
-                <form onSubmit={handleNameSubmit} className="w-full mb-4">
-                  <div className="relative">
+                <form onSubmit={handleNameSubmit} className="w-full mb-6">
+                  <div className="relative w-full max-w-[500px] h-[60px] mx-auto">
+                    <img src={inputTeksImg} alt="" className="absolute inset-0 w-full h-full object-fill pointer-events-none" />
                     <input
                       type="text"
                       id="name-input"
@@ -543,56 +581,30 @@ export default function App() {
                       maxLength={15}
                       placeholder="Masukkan namamu..."
                       autoComplete="off"
-                      className="w-full h-16 pl-5 pr-16 text-lg font-black text-[#1a1a1a] bg-white rounded-2xl outline-none transition-all"
+                      className="absolute inset-0 w-full h-full bg-transparent outline-none pl-6 pr-16 text-lg font-black text-[#1a1a1a]"
                       style={{
-                        border: '4px solid #1a1a1a',
-                        boxShadow: '4px 4px 0 #1a1a1a',
                         fontFamily: "'Nunito', sans-serif",
                       }}
-                      onFocus={e => { e.target.style.boxShadow = '6px 6px 0 #1a1a1a, 0 0 0 3px #FFD600'; }}
-                      onBlur={e => { e.target.style.boxShadow = '4px 4px 0 #1a1a1a'; }}
+                      onFocus={e => { e.target.parentElement.style.transform = 'scale(1.02)'; }}
+                      onBlur={e => { e.target.parentElement.style.transform = 'none'; }}
                     />
-                    {/* Pencil icon */}
-                    <div className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-[#FFD600] flex items-center justify-center pointer-events-none"
-                      style={{ border: '3px solid #1a1a1a' }}>
-                      <span className="text-lg">✏️</span>
+                    <div className="absolute right-5 top-1/2 -translate-y-1/2 text-xs font-black text-gray-400">
+                      {studentName.length}/15
                     </div>
-                  </div>
-                  {/* Char counter */}
-                  <div className="flex justify-end mt-1 pr-1">
-                    <span className="text-xs font-bold text-gray-400">{studentName.length}/15</span>
                   </div>
                 </form>
 
-                {/* MULAI Button — 2 kondisi */}
+                {/* MULAI Button */}
                 <button
                   onClick={handleNameSubmit}
                   disabled={!studentName.trim()}
-                  className="w-full h-16 rounded-2xl text-xl font-black uppercase flex items-center justify-center gap-3 transition-all select-none"
-                  style={{
-                    fontFamily: "'Lilita One', cursive",
-                    ...(studentName.trim()
-                      ? {
-                        background: '#FFD600',
-                        border: '5px solid #1a1a1a',
-                        boxShadow: '0 7px 0 #b38200',
-                        color: '#1a1a1a',
-                        cursor: 'pointer',
-                      }
-                      : {
-                        background: '#D1D5DB',
-                        border: '4px solid #9CA3AF',
-                        boxShadow: 'none',
-                        color: '#9CA3AF',
-                        cursor: 'not-allowed',
-                      }
-                    ),
-                  }}
-                  onMouseEnter={e => { if (studentName.trim()) { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 10px 0 #b38200'; } }}
-                  onMouseLeave={e => { if (studentName.trim()) { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 7px 0 #b38200'; } }}
-                  onMouseDown={e => { if (studentName.trim()) { e.currentTarget.style.transform = 'translateY(4px)'; e.currentTarget.style.boxShadow = '0 2px 0 #b38200'; } }}
+                  className="w-full max-w-[280px] h-[60px] mx-auto flex items-center justify-center transition-all select-none bg-transparent border-none focus:outline-none hover:scale-105 active:scale-95 cursor-pointer"
                 >
-                  MULAI! 🚀
+                  <img 
+                    src={studentName.trim() ? buttonMulaiActive : buttonMulaiDisabled} 
+                    alt="Mulai" 
+                    className="w-full h-full object-contain" 
+                  />
                 </button>
 
                 {/* Hint text */}
@@ -616,8 +628,11 @@ export default function App() {
             {/* Floating cloud decorations */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
               <img src={cartoonCloud} alt="" className="absolute w-36 animate-float-ud img-transparent-asset" style={{ top: '8%', left: '6%', animationDelay: '0s', animationDuration: '4.5s' }} />
-              <img src={cartoonCloud} alt="" className="absolute w-28 animate-float-ud img-transparent-asset" style={{ top: '24%', right: '10%', animationDelay: '1.5s', animationDuration: '5s' }} />
+              <img src={cartoonCloudBlue} alt="" className="absolute w-28 animate-float-ud img-transparent-asset" style={{ top: '24%', right: '10%', animationDelay: '1.5s', animationDuration: '5s' }} />
             </div>
+
+            {/* Mascot Character on Quiz Screen */}
+            <img src={getActiveCharacter()} alt="Mascot" className="hidden lg:block absolute bottom-0 right-4 w-40 z-10 pointer-events-none animate-float-ud img-transparent-asset" style={{ animationDuration: '6s' }} />
 
             <div className="w-full max-w-4xl px-4 md:px-8 flex flex-col gap-6 z-10 pb-20 select-none">
 
@@ -632,7 +647,7 @@ export default function App() {
                   </span>
                 </div>
                 {/* Track */}
-                <div className="w-full h-6 bg-gray-200 rounded-full border-[3px] border-[#1a1a1a] overflow-hidden relative"
+                <div className="w-full h-[24px] bg-[#E5E7EB] rounded-full border-2 border-[#1a1a1a] overflow-hidden relative"
                   style={{ boxShadow: '3px 3px 0 #1a1a1a' }}>
                   {/* Fill */}
                   <div className="h-full rounded-full transition-all duration-500 ease-out"
@@ -650,14 +665,12 @@ export default function App() {
                   border: '5px solid #1a1a1a',
                   boxShadow: '8px 8px 0px #1a1a1a',
                 }}>
-                {/* Number Badge (Top Left Corner of the card) */}
-                <div className="absolute -top-5 -left-3 bg-[#FFD600] px-4 py-1.5 rounded-xl text-sm font-black text-[#1a1a1a]"
-                  style={{
-                    border: '3px solid #1a1a1a',
-                    boxShadow: '3px 3px 0px #1a1a1a',
-                    fontFamily: "'Nunito', sans-serif"
-                  }}>
-                  No. {currentQuestionIndex + 1}
+                {/* Number Badge */}
+                <div className="absolute -top-6 -left-4 w-[75px] h-[45px] flex items-center justify-center">
+                  <img src={badgeNomorImg} alt="" className="absolute inset-0 w-full h-full object-contain pointer-none" />
+                  <span className="relative z-10 text-xs font-black text-[#1a1a1a] pb-1.5" style={{ fontFamily: "'Nunito', sans-serif" }}>
+                    No. {currentQuestionIndex + 1}
+                  </span>
                 </div>
 
                 {/* Floating bear emoji decoration for children */}
@@ -674,28 +687,31 @@ export default function App() {
                 {currentQuestion.choices.map((choice, index) => {
                   const isA = index === 0;
                   const icon = isA ? '📱' : '🎮';
-                  const btnBgClass = isA
-                    ? 'bg-gradient-to-t from-[#1a8fd1] to-[#5ec2f5] hover:from-[#2ba2e8] hover:to-[#8fd7ff]'
-                    : 'bg-gradient-to-t from-[#e8275e] to-[#ff8fb5] hover:from-[#f54275] hover:to-[#ffb3cc]';
+                  const isHovered = hoveredChoice === index;
+                  const buttonImg = isA 
+                    ? (isHovered ? buttonChoiceAHover : buttonChoiceANormal)
+                    : (isHovered ? buttonChoiceBHover : buttonChoiceBNormal);
 
                   return (
                     <button
                       key={index}
                       onClick={() => handleOptionSelect(choice)}
+                      onMouseEnter={() => setHoveredChoice(index)}
+                      onMouseLeave={() => setHoveredChoice(null)}
                       disabled={selectedOption !== null}
-                      className={`relative flex items-center gap-4 p-5 min-h-[96px] text-left transition-all rounded-2xl border-4 border-[#1a1a1a] shadow-retro-black-lg cursor-pointer select-none text-white hover:-translate-y-1 active:translate-y-1 ${btnBgClass} ${selectedOption ? 'pointer-events-none opacity-60' : ''}`}
+                      className={`relative flex items-center w-full max-w-[540px] h-[90px] md:h-[100px] text-left transition-all bg-transparent border-none cursor-pointer select-none text-[#1a1a1a] focus:outline-none hover:scale-102 active:scale-98 ${selectedOption ? 'pointer-events-none opacity-60' : ''}`}
                       style={{
                         fontFamily: "'Nunito', sans-serif",
                       }}
                     >
-                      {/* Emoji Icon */}
-                      <span className="text-4xl filter drop-shadow-[2px_2px_0px_#1a1a1a]">{icon}</span>
-
-                      {/* Choice Text */}
-                      <div className="flex-1">
-                        <span className="font-black text-lg md:text-xl block leading-snug drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]">
-                          {choice.text}
-                        </span>
+                      <img src={buttonImg} alt="" className="absolute inset-0 w-full h-full object-fill pointer-events-none" />
+                      <div className="relative z-10 flex items-center gap-4 px-6 w-full h-full pb-2">
+                        <span className="text-3xl filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.15)]">{icon}</span>
+                        <div className="flex-1">
+                          <span className="font-black text-base md:text-lg block leading-snug">
+                            {choice.text}
+                          </span>
+                        </div>
                       </div>
                     </button>
                   );
@@ -710,10 +726,10 @@ export default function App() {
                   style={{ border: '5px solid #1a1a1a', boxShadow: '8px 8px 0 #1a1a1a' }}>
 
                   {/* Decorative stars and sparkles in corners */}
-                  <img src={fStarDecor} alt="" className="absolute -top-6 -left-6 w-12 animate-wobble-lr img-transparent-asset pointer-events-none" />
-                  <img src={fSparkleDecor} alt="" className="absolute -bottom-6 -right-6 w-12 animate-float-ud img-transparent-asset pointer-events-none" style={{ animationDuration: '4s' }} />
-                  <img src={fSparkleDecor} alt="" className="absolute -top-6 right-10 w-8 animate-float-ud img-transparent-asset pointer-events-none" style={{ animationDuration: '5s' }} />
-                  <img src={fStarDecor} alt="" className="absolute bottom-10 -left-6 w-8 animate-wobble-lr img-transparent-asset pointer-events-none" />
+                  <img src={cartoonStarMedium} alt="" className="absolute -top-6 -left-6 w-12 animate-wobble-lr img-transparent-asset pointer-events-none" />
+                  <img src={sparkleImg} alt="" className="absolute -bottom-6 -right-6 w-12 animate-float-ud img-transparent-asset pointer-events-none" style={{ animationDuration: '4s' }} />
+                  <img src={sparkleImg} alt="" className="absolute -top-6 right-10 w-8 animate-float-ud img-transparent-asset pointer-events-none" style={{ animationDuration: '5s' }} />
+                  <img src={cartoonStarMedium} alt="" className="absolute bottom-10 -left-6 w-8 animate-wobble-lr img-transparent-asset pointer-events-none" />
 
                   {/* Bouncing Large Emoji */}
                   <div className="text-8xl mb-4 bounce-bounce select-none pointer-events-none display-inline-block animate-bounce" style={{ animationDuration: '1.5s' }}>
@@ -733,13 +749,8 @@ export default function App() {
 
                   {/* LANJUT Button */}
                   <button onClick={handleNextQuestion}
-                    className="w-full h-14 bg-white hover:scale-105 active:scale-95 transition-transform text-[#4CAF50] font-black text-xl rounded-2xl flex items-center justify-center cursor-pointer select-none"
-                    style={{
-                      border: '4px solid #1b5e20',
-                      boxShadow: '0 6px 0 #1b5e20',
-                      fontFamily: "'Lilita One', cursive"
-                    }}>
-                    LANJUT ➔
+                    className="w-full max-w-[180px] h-[50px] mx-auto flex items-center justify-center hover:scale-105 active:scale-95 transition-transform bg-transparent border-none focus:outline-none select-none">
+                    <img src={buttonLanjut} alt="Lanjut" className="w-full h-full object-contain" />
                   </button>
                 </div>
               </div>
@@ -752,10 +763,10 @@ export default function App() {
                   style={{ border: '5px solid #1a1a1a', boxShadow: '8px 8px 0 #1a1a1a' }}>
 
                   {/* Decorative stars and sparkles in corners */}
-                  <img src={fStarDecor} alt="" className="absolute -top-6 -left-6 w-12 animate-wobble-lr img-transparent-asset pointer-events-none" />
-                  <img src={fSparkleDecor} alt="" className="absolute -bottom-6 -right-6 w-12 animate-float-ud img-transparent-asset pointer-events-none" style={{ animationDuration: '4s' }} />
-                  <img src={fSparkleDecor} alt="" className="absolute -top-6 right-10 w-8 animate-float-ud img-transparent-asset pointer-events-none" style={{ animationDuration: '5s' }} />
-                  <img src={fStarDecor} alt="" className="absolute bottom-10 -left-6 w-8 animate-wobble-lr img-transparent-asset pointer-events-none" />
+                  <img src={cartoonStarMedium} alt="" className="absolute -top-6 -left-6 w-12 animate-wobble-lr img-transparent-asset pointer-events-none" />
+                  <img src={sparkleImg} alt="" className="absolute -bottom-6 -right-6 w-12 animate-float-ud img-transparent-asset pointer-events-none" style={{ animationDuration: '4s' }} />
+                  <img src={sparkleImg} alt="" className="absolute -top-6 right-10 w-8 animate-float-ud img-transparent-asset pointer-events-none" style={{ animationDuration: '5s' }} />
+                  <img src={cartoonStarMedium} alt="" className="absolute bottom-10 -left-6 w-8 animate-wobble-lr img-transparent-asset pointer-events-none" />
 
                   {/* Large Lightbulb Emoji */}
                   <div className="text-8xl mb-4 select-none pointer-events-none display-inline-block animate-pulse" style={{ animationDuration: '2s' }}>
@@ -775,13 +786,8 @@ export default function App() {
 
                   {/* LANJUT Button */}
                   <button onClick={handleNextQuestion}
-                    className="w-full h-14 bg-white hover:scale-105 active:scale-95 transition-transform text-[#FF6B35] font-black text-xl rounded-2xl flex items-center justify-center cursor-pointer select-none"
-                    style={{
-                      border: '4px solid #7f270b',
-                      boxShadow: '0 6px 0 #7f270b',
-                      fontFamily: "'Lilita One', cursive"
-                    }}>
-                    LANJUT ➔
+                    className="w-full max-w-[180px] h-[50px] mx-auto flex items-center justify-center hover:scale-105 active:scale-95 transition-transform bg-transparent border-none focus:outline-none select-none">
+                    <img src={buttonLanjut} alt="Lanjut" className="w-full h-full object-contain" />
                   </button>
                 </div>
               </div>
@@ -797,6 +803,9 @@ export default function App() {
               <img className="w-full h-full object-cover" src={cartoonBg} alt="background" />
               <div className="absolute inset-0 bg-[#87CEEB]/10 pointer-events-none" />
             </div>
+
+            {/* Mascot Character on Leaderboard Screen */}
+            <img src={getActiveCharacter()} alt="Mascot" className="hidden lg:block absolute bottom-0 right-4 w-40 z-10 pointer-events-none animate-float-ud img-transparent-asset" style={{ animationDuration: '6s' }} />
 
             {/* === CONFETTI RAIN === */}
             {(() => {
@@ -857,20 +866,21 @@ export default function App() {
                   </p>
 
                   {/* Big Score text (Neo-Brutalist cartoon style) */}
-                  <div className="text-7xl font-black my-4 text-[#1a1a1a]"
+                  <div className="text-5xl sm:text-6xl md:text-7xl font-black my-4 text-[#1a1a1a]"
                     style={{ fontFamily: "'Lilita One', cursive", WebkitTextStroke: '2.5px #1a1a1a', textShadow: '4px 4px 0 #fff' }}>
                     {score} / {currentSessionQuestions.length || 10}
                   </div>
 
                   {/* Star Rating row */}
-                  <div className="flex gap-1.5 justify-center mb-3 select-none">
+                  <div className="flex gap-1.5 justify-center mb-3 select-none bg-white px-4 py-1.5 rounded-2xl border-[3px] border-[#1a1a1a]"
+                    style={{ boxShadow: '3px 3px 0 #1a1a1a' }}>
                     {Array.from({ length: 5 }).map((_, i) => {
                       const isFilled = i < Math.round((score / (currentSessionQuestions.length || 10)) * 5);
                       return (
                         <span key={i} className="text-3xl" style={{
-                          color: isFilled ? '#FFF' : 'rgba(26, 26, 26, 0.2)',
-                          WebkitTextStroke: '2px #1a1a1a',
-                          textShadow: isFilled ? '2px 2px 0 #1a1a1a' : 'none'
+                          color: isFilled ? '#FFD600' : '#E5E7EB',
+                          WebkitTextStroke: '1.5px #1a1a1a',
+                          textShadow: isFilled ? '1.5px 1.5px 0 #b38200' : 'none'
                         }}>
                           ★
                         </span>
@@ -947,14 +957,8 @@ export default function App() {
 
                   {/* Next student button */}
                   <button onClick={handleResetForNextStudent}
-                    className="mt-6 w-full h-14 text-white font-black text-xl rounded-2xl flex items-center justify-center gap-2 hover:-translate-y-1 active:translate-y-1 transition-all cursor-pointer select-none"
-                    style={{
-                      fontFamily: "'Lilita One', cursive",
-                      background: '#4CAF50',
-                      border: '5px solid #1a1a1a',
-                      boxShadow: '5px 5px 0 #1a1a1a',
-                    }}>
-                    Siswa Selanjutnya ▶
+                    className="mt-6 w-full max-w-[300px] h-[60px] mx-auto flex items-center justify-center hover:scale-105 active:scale-95 transition-all bg-transparent border-none focus:outline-none select-none">
+                    <img src={buttonSelanjutnya} alt="Siswa Selanjutnya" className="w-full h-full object-contain" />
                   </button>
                 </div>
               </section>
@@ -1069,10 +1073,8 @@ export default function App() {
                       const ns = !soundEnabled; setSoundEnabled(ns);
                       if (ns) { try { const a = new Audio('https://www.soundjay.com/buttons/button-37.mp3'); a.volume = 0.15; a.play().catch(() => { }); } catch (e) { } }
                     }}
-                    className={`w-14 h-8 rounded-full transition-all relative flex items-center px-1 cursor-pointer ${soundEnabled ? 'bg-[#4CAF50]' : 'bg-gray-300'}`}
-                    style={{ border: '3px solid #1a1a1a', boxShadow: soundEnabled ? '2px 2px 0 #2a6e2f' : '2px 2px 0 #9CA3AF' }}>
-                    <div className={`w-5 h-5 rounded-full bg-white shadow transform transition-transform ${soundEnabled ? 'translate-x-6' : 'translate-x-0'}`}
-                      style={{ border: '2px solid #1a1a1a' }} />
+                    className="w-20 h-10 bg-transparent border-none focus:outline-none select-none hover:scale-105 transition-transform">
+                    <img src={soundEnabled ? toggleOnImg : toggleOffImg} alt="Toggle" className="w-full h-full object-contain" />
                   </button>
                 </div>
               </div>
@@ -1093,10 +1095,8 @@ export default function App() {
                       const nm = !bgMusicEnabled; setBgMusicEnabled(nm);
                       if (nm) { playSound('click'); }
                     }}
-                    className={`w-14 h-8 rounded-full transition-all relative flex items-center px-1 cursor-pointer ${bgMusicEnabled ? 'bg-[#4CAF50]' : 'bg-gray-300'}`}
-                    style={{ border: '3px solid #1a1a1a', boxShadow: bgMusicEnabled ? '2px 2px 0 #2a6e2f' : '2px 2px 0 #9CA3AF' }}>
-                    <div className={`w-5 h-5 rounded-full bg-white shadow transform transition-transform ${bgMusicEnabled ? 'translate-x-6' : 'translate-x-0'}`}
-                      style={{ border: '2px solid #1a1a1a' }} />
+                    className="w-20 h-10 bg-transparent border-none focus:outline-none select-none hover:scale-105 transition-transform">
+                    <img src={bgMusicEnabled ? toggleOnImg : toggleOffImg} alt="Toggle" className="w-full h-full object-contain" />
                   </button>
                 </div>
               </div>
@@ -1109,14 +1109,8 @@ export default function App() {
                   Hapus Semua Data
                 </span>
                 <button onClick={() => { playSound('click'); setShowResetConfirm(true); }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-black text-sm cursor-pointer hover:opacity-90 active:scale-95 transition-all"
-                  style={{
-                    fontFamily: "'Nunito',sans-serif",
-                    background: '#EF4444',
-                    border: '3px solid #1a1a1a',
-                    boxShadow: '3px 3px 0 #1a1a1a'
-                  }}>
-                  🗑️ Hapus
+                  className="w-[140px] h-[45px] flex items-center justify-center hover:scale-105 active:scale-95 transition-all bg-transparent border-none focus:outline-none select-none">
+                  <img src={buttonReset} alt="Hapus" className="w-full h-full object-contain" />
                 </button>
               </div>
 
@@ -1128,14 +1122,8 @@ export default function App() {
                   Keluar Aplikasi
                 </span>
                 <button onClick={() => { playSound('click'); setShowSettings(false); setShowExitConfirm(true); }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-black text-sm cursor-pointer hover:opacity-90 active:scale-95 transition-all"
-                  style={{
-                    fontFamily: "'Nunito',sans-serif",
-                    background: '#EF4444',
-                    border: '3px solid #1a1a1a',
-                    boxShadow: '3px 3px 0 #1a1a1a'
-                  }}>
-                  🚪 Keluar
+                  className="w-[140px] h-[45px] flex items-center justify-center hover:scale-105 active:scale-95 transition-all bg-transparent border-none focus:outline-none select-none">
+                  <img src={buttonReset} alt="Keluar" className="w-full h-full object-contain" />
                 </button>
               </div>
 
@@ -1167,23 +1155,15 @@ export default function App() {
             <p className="font-bold text-gray-500 mb-7 leading-relaxed" style={{ fontFamily: "'Nunito',sans-serif" }}>
               Yakin ingin menghapus semua data?<br />Tindakan ini <strong className="text-red-500">tidak dapat dibatalkan</strong>.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center items-center">
               <button onClick={() => { playSound('click'); setShowResetConfirm(false); }}
-                className="flex-1 h-14 rounded-2xl font-black text-base text-gray-700 cursor-pointer hover:-translate-y-1 active:translate-y-1 transition-all"
-                style={{
-                  fontFamily: "'Nunito',sans-serif",
-                  background: '#E5E7EB',
-                  border: '4px solid #1a1a1a',
-                  boxShadow: '4px 4px 0 #1a1a1a'
-                }}>Batal</button>
+                className="w-[140px] h-[45px] flex items-center justify-center hover:scale-105 active:scale-95 transition-all bg-transparent border-none focus:outline-none select-none">
+                <img src={buttonBatal} alt="Batal" className="w-full h-full object-contain" />
+              </button>
               <button onClick={() => { playSound('click'); setLeaderboard([]); setShowResetConfirm(false); setShowResetSuccess(true); }}
-                className="flex-1 h-14 rounded-2xl font-black text-base text-white cursor-pointer hover:-translate-y-1 active:translate-y-1 transition-all"
-                style={{
-                  fontFamily: "'Nunito',sans-serif",
-                  background: '#EF4444',
-                  border: '4px solid #1a1a1a',
-                  boxShadow: '4px 4px 0 #7f1d1d'
-                }}>🗑️ Ya, Hapus</button>
+                className="w-[140px] h-[45px] flex items-center justify-center hover:scale-105 active:scale-95 transition-all bg-transparent border-none focus:outline-none select-none">
+                <img src={buttonReset} alt="Ya, Hapus" className="w-full h-full object-contain" />
+              </button>
             </div>
           </div>
         </div>
@@ -1201,14 +1181,8 @@ export default function App() {
               Data leaderboard berhasil dihapus! 🧹
             </p>
             <button onClick={() => { playSound('click'); setShowResetSuccess(false); }}
-              className="w-full h-14 text-white font-black text-xl uppercase rounded-2xl cursor-pointer hover:-translate-y-1 active:translate-y-1 transition-all"
-              style={{
-                fontFamily: "'Lilita One',cursive",
-                background: '#4CAF50',
-                border: '4px solid #1a1a1a',
-                boxShadow: '0 6px 0 #2a6e2f'
-              }}>
-              Oke! 🎉
+              className="w-full max-w-[180px] h-[50px] mx-auto flex items-center justify-center hover:scale-105 active:scale-95 transition-transform bg-transparent border-none focus:outline-none select-none">
+              <img src={buttonLanjut} alt="Oke" className="w-full h-full object-contain" />
             </button>
           </div>
         </div>
@@ -1222,12 +1196,15 @@ export default function App() {
             <div className="text-6xl mb-4">👋</div>
             <h2 className="text-2xl font-black text-red-500 mb-3" style={{ fontFamily: "'Lilita One',cursive" }}>Keluar Game?</h2>
             <p className="font-bold text-gray-600 mb-6">Apakah kamu yakin ingin keluar dari game?</p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center items-center">
               <button onClick={() => { playSound('click'); setShowExitConfirm(false); }}
-                className="cartoon-btn flex-1 h-14 bg-gray-200 text-gray-800 text-base">Batal</button>
+                className="w-[140px] h-[45px] flex items-center justify-center hover:scale-105 active:scale-95 transition-all bg-transparent border-none focus:outline-none select-none">
+                <img src={buttonBatal} alt="Batal" className="w-full h-full object-contain" />
+              </button>
               <button onClick={handleExitApp}
-                className="cartoon-btn flex-1 h-14 bg-red-500 text-white text-base"
-                style={{ boxShadow: '0 6px 0 #7f1d1d' }}>Ya, Keluar</button>
+                className="w-[140px] h-[45px] flex items-center justify-center hover:scale-105 active:scale-95 transition-all bg-transparent border-none focus:outline-none select-none">
+                <img src={buttonReset} alt="Ya, Keluar" className="w-full h-full object-contain" />
+              </button>
             </div>
           </div>
         </div>

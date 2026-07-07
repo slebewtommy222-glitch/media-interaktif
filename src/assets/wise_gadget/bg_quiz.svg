@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E0F2FE" />
+      <stop offset="100%" stop-color="#F0FDFA" />
+    </linearGradient>
+    <pattern id="dotPattern" width="60" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="3" fill="#93C5FD" opacity="0.3" />
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#skyGrad)" />
+  <rect width="1280" height="720" fill="url(#dotPattern)" />
+  
+  <!-- Subtle decorative stars in background -->
+  <path d="M 120,100 L 123,108 L 131,108 L 125,113 L 127,121 L 120,116 L 113,121 L 115,113 L 109,108 L 117,108 Z" fill="#FFD600" opacity="0.2" />
+  <path d="M 1120,150 L 1123,158 L 1131,158 L 1125,163 L 1127,171 L 1120,166 L 113,171 L 1115,163 L 1109,158 L 1117,158 Z" fill="#FFD600" opacity="0.2" transform="translate(1000, 0)" />
+  <path d="M 250,540 L 253,548 L 261,548 L 255,553 L 257,561 L 250,556 L 243,561 L 245,553 L 239,548 L 247,548 Z" fill="#FFD600" opacity="0.15" />
+  <path d="M 980,480 L 983,488 L 991,488 L 985,493 L 987,501 L 980,496 L 973,501 L 975,493 L 969,488 L 977,488 Z" fill="#FFD600" opacity="0.15" />
+  
+  <!-- Subtle decorative clouds in background -->
+  <path d="M 180,250 C 170,250 162,242 164,232 C 166,220 178,212 188,216 C 195,204 215,200 228,208 C 240,198 258,206 260,221 C 270,223 278,233 274,242 C 270,250 255,250 248,250 Z" fill="#FFFFFF" opacity="0.25" />
+  <path d="M 1000,320 C 990,320 982,312 984,302 C 986,290 998,282 1008,286 C 1015,274 1035,270 1048,278 C 1060,268 1078,276 1080,291 C 1090,293 1098,303 1094,312 C 1090,320 1075,320 1068,320 Z" fill="#FFFFFF" opacity="0.25" />
+</svg>
