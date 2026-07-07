@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <radialGradient id="trophyGrad" cx="35%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#FFF176"/>
+      <stop offset="100%" stop-color="#F9A825"/>
+    </radialGradient>
+    <radialGradient id="baseGrad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFD54F"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </radialGradient>
+  </defs>
+  <!-- Shadow -->
+  <ellipse cx="100" cy="190" rx="45" ry="8" fill="rgba(0,0,0,0.15)"/>
+  <!-- Trophy base plate -->
+  <rect x="62" y="165" width="76" height="18" rx="6" fill="url(#baseGrad)" stroke="#1a1a1a" stroke-width="4"/>
+  <!-- Trophy stem -->
+  <rect x="88" y="148" width="24" height="22" rx="4" fill="url(#trophyGrad)" stroke="#1a1a1a" stroke-width="4"/>
+  <!-- Trophy cup body -->
+  <path d="M50 50 Q50 140 100 145 Q150 140 150 50 Z" fill="url(#trophyGrad)" stroke="#1a1a1a" stroke-width="5"/>
+  <!-- Trophy handles left -->
+  <path d="M50 65 Q20 65 20 95 Q20 120 50 118" fill="none" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M50 65 Q26 65 26 95 Q26 115 50 113" fill="#FFD600" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Trophy handles right -->
+  <path d="M150 65 Q180 65 180 95 Q180 120 150 118" fill="none" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M150 65 Q174 65 174 95 Q174 115 150 113" fill="#FFD600" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Stars on cup -->
+  <text x="100" y="108" font-size="42" text-anchor="middle" fill="#FF6B35" stroke="#1a1a1a" stroke-width="2">★</text>
+  <!-- Sparkles -->
+  <circle cx="145" cy="42" r="7" fill="#FF6B35" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="145" y="47" font-size="9" text-anchor="middle" fill="white">✦</text>
+  <circle cx="55" cy="38" r="6" fill="#4CAF50" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="55" y="42" font-size="8" text-anchor="middle" fill="white">✦</text>
+  <circle cx="165" cy="70" r="5" fill="#1a8fd1" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="165" y="74" font-size="7" text-anchor="middle" fill="white">✦</text>
+</svg>

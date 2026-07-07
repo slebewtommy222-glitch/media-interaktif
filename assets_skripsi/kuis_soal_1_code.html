@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Wise Gadget Guide - Quiz</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "surface-tint": "#1a6299",
+                    "surface-bright": "#f8f9fa",
+                    "on-error-container": "#93000a",
+                    "surface": "#f8f9fa",
+                    "background": "#f8f9fa",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#00201d",
+                    "on-primary-fixed-variant": "#004a79",
+                    "secondary": "#326760",
+                    "on-surface": "#191c1d",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#cfe5ff",
+                    "tertiary": "#6c5d39",
+                    "on-surface-variant": "#41474f",
+                    "on-primary-container": "#003d65",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e7e8e9",
+                    "secondary-container": "#b3eae1",
+                    "surface-variant": "#e1e3e4",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#191c1d",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-container-highest": "#e1e3e4",
+                    "primary": "#1a6299",
+                    "outline-variant": "#c1c7d1",
+                    "surface-container": "#edeeef",
+                    "on-secondary-container": "#366b64",
+                    "primary-container": "#6da9e4",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#b6ede4",
+                    "tertiary-fixed": "#f6e0b3",
+                    "surface-dim": "#d9dadb",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-fixed-variant": "#164f49",
+                    "on-tertiary-fixed": "#251a01",
+                    "on-tertiary-container": "#463918",
+                    "secondary-fixed-dim": "#9bd1c8",
+                    "tertiary-fixed-dim": "#d9c499",
+                    "on-tertiary-fixed-variant": "#534524",
+                    "inverse-primary": "#9acbff",
+                    "tertiary-container": "#b5a279",
+                    "outline": "#717880",
+                    "primary-fixed-dim": "#9acbff",
+                    "on-primary-fixed": "#001d34",
+                    "inverse-on-surface": "#f0f1f2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "touch-target-min": "64px",
+                    "gutter": "24px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Quicksand"],
+                    "label-lg": ["Quicksand"],
+                    "headline-lg-mobile": ["Quicksand"],
+                    "headline-lg": ["Quicksand"],
+                    "headline-md": ["Quicksand"],
+                    "body-md": ["Quicksand"]
+            },
+            "fontSize": {
+                    "body-lg": ["24px", {"lineHeight": "36px", "fontWeight": "500"}],
+                    "label-lg": ["20px", {"lineHeight": "24px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "42px", "fontWeight": "600"}],
+                    "body-md": ["18px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .tactile-button {
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        
+        .tactile-button:active {
+            transform: translateY(4px);
+            box-shadow: none !important;
+        }
+
+        .floating-accent {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface min-h-screen overflow-x-hidden relative">
+<!-- Top AppBar (from JSON guidance) -->
+<header class="bg-background flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-headline-md" style="font-variation-settings: 'FILL' 1;">face_6</span>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Wise Gadget Guide</h1>
+</div>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined text-headline-md">settings</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-margin-mobile md:px-margin-desktop py-unit">
+<!-- Animated Background Elements (Soft circles for kindergarten vibe) -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden -z-10">
+<div class="absolute -top-20 -left-20 w-64 h-64 bg-primary-container opacity-20 rounded-full blur-3xl floating-accent"></div>
+<div class="absolute top-1/2 -right-32 w-96 h-96 bg-secondary-container opacity-20 rounded-full blur-3xl floating-accent" style="animation-delay: 2s"></div>
+<div class="absolute -bottom-40 left-1/4 w-80 h-80 bg-tertiary-fixed opacity-15 rounded-full blur-3xl floating-accent" style="animation-delay: 4s"></div>
+</div>
+<!-- Quiz Background Image (Instructional Classroom) -->
+<div class="absolute inset-0 -z-20 opacity-40">
+<img class="w-full h-full object-cover" data-alt="A bright and cheerful kindergarten classroom interior in a modern, minimalist style. The room features soft pastel colors, large windows letting in warm natural light, light wood furniture, and organized shelves with books and educational toys. The atmosphere is calm, safe, and encouraging, perfectly suited for a learning guide app with a soft tactile aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALXmIglqvdbzYk2jRAfIgOuFOnoBesKcXRYFm8b-0ptszetnpXI370HskVsogZRdiyemuVkP62Z7zjkWFC2XKRYLic17hMSSjV7PwuAqmU-oEnU3uE1aso19vPnHZu0mu5uiFBKWyTojvoupjrGO9FiTYExY7wJUhvaN0vymDefKm8mpr47GP-KD94gApt6T5GreJXKJ7G2oBVEENgW_5DbXddDYwkmVyXM2tgF7MAIpKWm3XIgj5YFAbLvonOTcVw_3VvYxpwF4I"/>
+</div>
+<div class="w-full max-w-4xl space-y-12">
+<!-- Progress Tracker -->
+<div class="flex justify-center items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-lg border-b-4 border-secondary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="flex-1 h-4 bg-surface-container-high rounded-full overflow-hidden border-2 border-surface-container-highest">
+<div class="h-full bg-primary-container w-1/5 rounded-full transition-all duration-1000"></div>
+</div>
+<span class="font-label-lg text-primary">1 / 5</span>
+</div>
+<!-- Question Card -->
+<div class="glass-card rounded-[2.5rem] p-8 md:p-12 text-center shadow-2xl border-4 border-white">
+<span class="text-primary font-label-lg block mb-2 tracking-widest">SOAL 1</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-on-surface leading-tight">Saat waktu belajar, apa yang harus dilakukan?</h2>
+</div>
+<!-- Options Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+<!-- Option A: Correct/Positive -->
+<button class="tactile-button group relative flex items-center gap-6 bg-secondary-container text-on-secondary-container p-6 rounded-[2rem] border-b-8 border-secondary shadow-lg min-h-[120px] hover:bg-secondary-fixed transition-colors" onclick="handleSelect(this, true)">
+<div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[48px] text-secondary">menu_book</span>
+</div>
+<div class="text-left">
+<span class="block font-label-lg opacity-60">Pilihan A</span>
+<span class="font-headline-md block">Belajar</span>
+</div>
+<div class="absolute right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-headline-md">check_circle</span>
+</div>
+</button>
+<!-- Option B: Incorrect/Distraction -->
+<button class="tactile-button group relative flex items-center gap-6 bg-error-container text-on-error-container p-6 rounded-[2rem] border-b-8 border-error shadow-lg min-h-[120px] hover:bg-red-100 transition-colors" onclick="handleSelect(this, false)">
+<div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[48px] text-error">tablet_mac</span>
+</div>
+<div class="text-left">
+<span class="block font-label-lg opacity-60">Pilihan B</span>
+<span class="font-headline-md block">Bermain gadget</span>
+</div>
+<div class="absolute right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-headline-md">cancel</span>
+</div>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (from JSON guidance) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest flex justify-around items-center px-4 py-3 pb-safe border-t-4 border-surface-container-high shadow-[0_-4px_10px_rgba(0,0,0,0.05)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:bg-surface-container-low transition-colors px-6 py-2 rounded-full" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-lg text-label-lg">Home</span>
+</a>
+<!-- Home is active based on the "current location" flow for a quiz within the guide -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-6 py-2 border-b-4 border-secondary transition-all duration-100 translate-y-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+<span class="font-label-lg text-label-lg">Trophy</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:bg-surface-container-low transition-colors px-6 py-2 rounded-full" href="#">
+<span class="material-symbols-outlined">shield_with_heart</span>
+<span class="font-label-lg text-label-lg">Safety</span>
+</a>
+</nav>
+<!-- Correct Feedback Overlay (Hidden by default) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm hidden p-margin-mobile" id="feedback-correct">
+<div class="bg-white rounded-[3rem] p-12 text-center max-w-lg shadow-2xl scale-90 opacity-0 transition-all duration-300 border-8 border-secondary-container" id="modal-content-correct">
+<div class="w-32 h-32 bg-secondary-container text-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-[64px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<h3 class="font-headline-lg-mobile text-on-surface mb-4">Hebat! Kamu Benar!</h3>
+<p class="text-body-lg text-on-surface-variant mb-8">Belajar itu seru dan membuat kita jadi lebih pintar. Ayo lanjut ke soal berikutnya!</p>
+<button class="tactile-button w-full bg-primary text-on-primary font-label-lg h-[72px] rounded-full border-b-8 border-on-primary-fixed-variant text-2xl" onclick="closeFeedback('correct')">
+                Soal Berikutnya
+            </button>
+</div>
+</div>
+<!-- Incorrect Feedback Overlay (Hidden by default) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm hidden p-margin-mobile" id="feedback-wrong">
+<div class="bg-white rounded-[3rem] p-12 text-center max-w-lg shadow-2xl scale-90 opacity-0 transition-all duration-300 border-8 border-error-container" id="modal-content-wrong">
+<div class="w-32 h-32 bg-error-container text-error rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-[64px]">lightbulb</span>
+</div>
+<h3 class="font-headline-lg-mobile text-on-surface mb-4">Oops, Coba Lagi!</h3>
+<p class="text-body-lg text-on-surface-variant mb-8">Gadget dimainkan nanti saja setelah belajar selesai ya. Pasti kamu bisa!</p>
+<button class="tactile-button w-full bg-on-surface-variant text-white font-label-lg h-[72px] rounded-full border-b-8 border-surface-dim text-2xl" onclick="closeFeedback('wrong')">
+                Coba Lagi
+            </button>
+</div>
+</div>
+<script>
+        function handleSelect(btn, isCorrect) {
+            const feedbackId = isCorrect ? 'feedback-correct' : 'feedback-wrong';
+            const modalContentId = isCorrect ? 'modal-content-correct' : 'modal-content-wrong';
+            
+            const overlay = document.getElementById(feedbackId);
+            const content = document.getElementById(modalContentId);
+            
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('scale-90', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeFeedback(type) {
+            const feedbackId = type === 'correct' ? 'feedback-correct' : 'feedback-wrong';
+            const modalContentId = type === 'correct' ? 'modal-content-correct' : 'modal-content-wrong';
+            
+            const overlay = document.getElementById(feedbackId);
+            const content = document.getElementById(modalContentId);
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-90', 'opacity-0');
+            
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                if (type === 'correct') {
+                    // Reset for next question (mock behavior)
+                    location.reload(); 
+                }
+            }, 300);
+        }
+    </script>
+</body></html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Retro offset shadow -->
+  <circle cx="106" cy="106" r="85" fill="#1a1a1a" />
+  <!-- Main circle button -->
+  <circle cx="100" cy="100" r="85" fill="#FFD600" stroke="#1a1a1a" stroke-width="6" />
+  <!-- Play Triangle -->
+  <polygon points="85,60 135,100 85,140" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="6" stroke-linejoin="round" />
+  <!-- Highlights -->
+  <circle cx="75" cy="55" r="8" fill="#ffffff" opacity="0.6" />
+</svg>

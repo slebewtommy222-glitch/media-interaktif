@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Outer glow ring -->
+  <circle cx="100" cy="100" r="96" fill="#FFE135" stroke="#1a1a1a" stroke-width="5"/>
+  <!-- Inner gradient circle -->
+  <defs>
+    <radialGradient id="playGrad" cx="38%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#FFF176"/>
+      <stop offset="100%" stop-color="#F9A825"/>
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="3" dy="4" stdDeviation="3" flood-color="#1a1a1a" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <circle cx="100" cy="100" r="90" fill="url(#playGrad)" stroke="#1a1a1a" stroke-width="5"/>
+  <!-- Shine highlight -->
+  <ellipse cx="75" cy="68" rx="22" ry="14" fill="rgba(255,255,255,0.45)" transform="rotate(-20,75,68)"/>
+  <!-- Play triangle -->
+  <polygon points="82,62 82,138 152,100" fill="white" stroke="#1a1a1a" stroke-width="5" stroke-linejoin="round" filter="url(#shadow)"/>
+  <!-- Stars decoration -->
+  <circle cx="38" cy="55" r="8" fill="#FF6B35" stroke="#1a1a1a" stroke-width="3"/>
+  <circle cx="165" cy="148" r="6" fill="#4CAF50" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="36" y="60" font-size="12" text-anchor="middle" fill="white">★</text>
+  <text x="163" y="153" font-size="10" text-anchor="middle" fill="white">★</text>
+</svg>

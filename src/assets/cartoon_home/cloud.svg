@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="120" height="80">
+  <!-- Retro Shadow -->
+  <path d="M 25,55 C 25,45 35,35 45,35 C 48,25 62,15 75,20 C 88,15 102,25 102,38 C 112,38 117,45 115,55 C 115,62 108,68 100,68 L 25,68 C 18,68 15,62 25,55 Z" fill="#1a1a1a" transform="translate(4, 4)" />
+  <!-- Cloud Path -->
+  <path d="M 25,55 C 25,45 35,35 45,35 C 48,25 62,15 75,20 C 88,15 102,25 102,38 C 112,38 117,45 115,55 C 115,62 108,68 100,68 L 25,68 C 18,68 15,62 25,55 Z" fill="#ffffff" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round" />
+</svg>

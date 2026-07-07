@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <radialGradient id="shieldGrad" cx="35%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#64B5F6"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- Shadow -->
+  <ellipse cx="100" cy="188" rx="48" ry="9" fill="rgba(0,0,0,0.15)"/>
+  <!-- Shield body -->
+  <path d="M100 18 L165 45 L165 105 Q165 158 100 182 Q35 158 35 105 L35 45 Z"
+    fill="url(#shieldGrad)" stroke="#1a1a1a" stroke-width="5.5" stroke-linejoin="round"/>
+  <!-- Shield inner border -->
+  <path d="M100 30 L153 53 L153 105 Q153 148 100 168 Q47 148 47 105 L47 53 Z"
+    fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Shine highlight -->
+  <ellipse cx="78" cy="72" rx="18" ry="28" fill="rgba(255,255,255,0.22)" transform="rotate(-15,78,72)"/>
+  <!-- Heart icon -->
+  <path d="M100 140 C62 118 60 82 80 72 C90 67 100 76 100 76 C100 76 110 67 120 72 C140 82 138 118 100 140 Z"
+    fill="#FF4081" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Heart shine -->
+  <ellipse cx="88" cy="85" rx="7" ry="10" fill="rgba(255,255,255,0.4)" transform="rotate(-20,88,85)"/>
+  <!-- Star decorations -->
+  <circle cx="50" cy="50" r="8" fill="#FFD600" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="50" y="55" font-size="10" text-anchor="middle" fill="#1a1a1a">★</text>
+  <circle cx="152" cy="45" r="7" fill="#FFD600" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="152" y="50" font-size="9" text-anchor="middle" fill="#1a1a1a">★</text>
+  <!-- Sparkle dots -->
+  <circle cx="162" cy="130" r="5" fill="#FF6B35" stroke="#1a1a1a" stroke-width="2"/>
+  <circle cx="38" cy="125" r="4" fill="#4CAF50" stroke="#1a1a1a" stroke-width="2"/>
+</svg>

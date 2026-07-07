@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wise Gadget Guide - Name Input</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-tint": "#1a6299",
+                        "surface-bright": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9fa",
+                        "background": "#f8f9fa",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#00201d",
+                        "on-primary-fixed-variant": "#004a79",
+                        "secondary": "#326760",
+                        "on-surface": "#191c1d",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#cfe5ff",
+                        "tertiary": "#6c5d39",
+                        "on-surface-variant": "#41474f",
+                        "on-primary-container": "#003d65",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary-container": "#b3eae1",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary": "#1a6299",
+                        "outline-variant": "#c1c7d1",
+                        "surface-container": "#edeeef",
+                        "on-secondary-container": "#366b64",
+                        "primary-container": "#6da9e4",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#b6ede4",
+                        "tertiary-fixed": "#f6e0b3",
+                        "surface-dim": "#d9dadb",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-fixed-variant": "#164f49",
+                        "on-tertiary-fixed": "#251a01",
+                        "on-tertiary-container": "#463918",
+                        "secondary-fixed-dim": "#9bd1c8",
+                        "tertiary-fixed-dim": "#d9c499",
+                        "on-tertiary-fixed-variant": "#534524",
+                        "inverse-primary": "#9acbff",
+                        "tertiary-container": "#b5a279",
+                        "outline": "#717880",
+                        "primary-fixed-dim": "#9acbff",
+                        "on-primary-fixed": "#001d34",
+                        "inverse-on-surface": "#f0f1f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "touch-target-min": "64px",
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Quicksand"],
+                        "label-lg": ["Quicksand"],
+                        "headline-lg-mobile": ["Quicksand"],
+                        "headline-lg": ["Quicksand"],
+                        "headline-md": ["Quicksand"],
+                        "body-md": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["24px", {"lineHeight": "36px", "fontWeight": "500"}],
+                        "label-lg": ["20px", {"lineHeight": "24px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "42px", "fontWeight": "600"}],
+                        "body-md": ["18px", {"lineHeight": "28px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+        }
+
+        .tactile-button {
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            box-shadow: 0 8px 0 #1e5a4d; /* Darker green shadow */
+        }
+
+        .tactile-button:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #1e5a4d;
+        }
+
+        .input-glow:focus {
+            box-shadow: 0 0 15px rgba(26, 98, 153, 0.3);
+            outline: none;
+        }
+
+        .soft-floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .blurred-bg {
+            background: linear-gradient(rgba(248, 249, 250, 0.7), rgba(248, 249, 250, 0.7)),
+                        url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=2022');
+            background-size: cover;
+            background-position: center;
+            filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex items-center justify-center p-margin-mobile md:p-margin-desktop relative">
+<!-- Blurred Background Layer -->
+<div class="fixed inset-0 blurred-bg -z-10" data-alt="A soft and dreamlike blurred background of a modern kindergarten classroom. The scene is filled with warm sunlight filtering through windows, illuminating pastel-colored furniture, low bookshelves filled with colorful books, and soft play mats. The overall aesthetic is gentle, safe, and encouraging, using a palette of creams, light blues, and mint greens to create a serene environment for young learners."></div>
+<!-- Background Atmospheric Shapes -->
+<div class="absolute top-10 left-10 opacity-20 hidden md:block">
+<span class="material-symbols-outlined text-[120px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="absolute bottom-10 right-10 opacity-20 hidden md:block">
+<span class="material-symbols-outlined text-[140px] text-secondary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<!-- Main Content Shell (No Nav as per Destination Rule) -->
+<main class="relative z-10 w-full max-w-4xl flex flex-col items-center">
+<!-- Whiteboard Container -->
+<div class="bg-white border-[12px] border-[#d9c499] rounded-[40px] p-8 md:p-16 shadow-2xl w-full flex flex-col items-center relative overflow-visible">
+<!-- Friendly Mascot -->
+<div class="absolute -top-24 md:-top-32 -right-8 md:-right-20 soft-floating">
+<div class="relative w-32 h-32 md:w-48 md:h-48 flex items-center justify-center">
+<img alt="Mascot" class="w-full h-full object-cover rounded-full border-8 border-white shadow-lg" data-alt="A cute and friendly illustrated baby bear mascot wearing a small explorer hat. The bear has a gentle, smiling expression with large, expressive eyes that communicate warmth and patience. The illustration style is soft and 3D-like, with a tactile, velvety texture, sitting in a cheerful pose on the corner of the screen. The colors are warm honey browns and soft creams, fitting perfectly into a child-friendly educational interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9lgh9muJJGpqP3riwjz3IXF8BpsnwjUKM5TWhNNxqNyAVT-2tEIYciOEJDlQ9JbjRPD0IKJ7xmlDdHHZ-cSaCjGbBIg17i_obkXumClEKtACeqEA__hu09rLklvoR563ZarYYiHxfy-01dFqgXKDBhvkazJnxY-ORad9pLUKl61XSydzC6LVdCiIZNiWOXWc2ZEQFx7ONjyVChLsJpOeNRsOH8EecGZ3q9CZNtNnOdWsUEiY-0aq-lVZPWrBS9PpJhp2mQrpM89o"/>
+</div>
+</div>
+<!-- Title -->
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-primary text-center mb-10">
+                Masukkan Nama Kamu
+            </h1>
+<!-- Input Section -->
+<div class="w-full max-w-lg mb-12">
+<div class="relative group">
+<input class="w-full h-touch-target-min rounded-[24px] border-4 border-outline-variant bg-surface-container-lowest px-8 font-body-lg text-on-surface placeholder:text-outline input-glow transition-all duration-300" id="name-input" maxlength="15" placeholder="Ketik namamu di sini..." type="text"/>
+<!-- Decorative Icon inside input -->
+<div class="absolute right-6 top-1/2 -translate-y-1/2 text-primary opacity-30">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">edit</span>
+</div>
+</div>
+</div>
+<!-- Next Button -->
+<button class="tactile-button w-full max-w-xs h-touch-target-min bg-secondary text-on-secondary rounded-[32px] font-label-lg text-label-lg uppercase tracking-wider flex items-center justify-center gap-3" id="next-btn">
+                Next
+                <span class="material-symbols-outlined font-bold">arrow_forward</span>
+</button>
+<!-- Decorative Star Bubbles -->
+<div class="absolute -bottom-6 -left-6 flex gap-3">
+<div class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-on-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="w-10 h-10 bg-primary-fixed rounded-full flex items-center justify-center shadow-md mt-4">
+<span class="material-symbols-outlined text-on-primary-fixed" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+</div>
+<!-- Footnote / Guidance -->
+<p class="mt-8 font-body-md text-on-surface-variant text-center opacity-70">
+            Ayo kita mulai petualangan pintarmu!
+        </p>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nextBtn = document.getElementById('next-btn');
+            const nameInput = document.getElementById('name-input');
+
+            // Micro-interaction for input focus
+            nameInput.addEventListener('focus', () => {
+                nameInput.parentElement.classList.add('scale-105');
+                nameInput.parentElement.style.transition = 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+
+            nameInput.addEventListener('blur', () => {
+                nameInput.parentElement.classList.remove('scale-105');
+            });
+
+            // Button click interaction
+            nextBtn.addEventListener('click', () => {
+                const name = nameInput.value.trim();
+                if (name) {
+                    // Visual feedback for success
+                    nextBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span>';
+                    setTimeout(() => {
+                        nextBtn.innerHTML = 'Hore! ✨';
+                        nextBtn.style.backgroundColor = '#1a6299'; // Primary color shift
+                    }, 800);
+                } else {
+                    // Shake animation for empty input
+                    nameInput.classList.add('border-error');
+                    nameInput.animate([
+                        { transform: 'translateX(0px)' },
+                        { transform: 'translateX(-10px)' },
+                        { transform: 'translateX(10px)' },
+                        { transform: 'translateX(-10px)' },
+                        { transform: 'translateX(0px)' }
+                    ], { duration: 300 });
+                    
+                    setTimeout(() => nameInput.classList.remove('border-error'), 1000);
+                }
+            });
+
+            // Allow "Enter" key to trigger next
+            nameInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    nextBtn.click();
+                }
+            });
+        });
+    </script>
+</body></html>

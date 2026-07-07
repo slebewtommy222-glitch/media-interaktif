@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wise Gadget Guide - Hasil Akhir</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "surface-tint": "#1a6299",
+                    "surface-bright": "#f8f9fa",
+                    "on-error-container": "#93000a",
+                    "surface": "#f8f9fa",
+                    "background": "#f8f9fa",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#00201d",
+                    "on-primary-fixed-variant": "#004a79",
+                    "secondary": "#326760",
+                    "on-surface": "#191c1d",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#cfe5ff",
+                    "tertiary": "#6c5d39",
+                    "on-surface-variant": "#41474f",
+                    "on-primary-container": "#003d65",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e7e8e9",
+                    "secondary-container": "#b3eae1",
+                    "surface-variant": "#e1e3e4",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#191c1d",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-container-highest": "#e1e3e4",
+                    "primary": "#1a6299",
+                    "outline-variant": "#c1c7d1",
+                    "surface-container": "#edeeef",
+                    "on-secondary-container": "#366b64",
+                    "primary-container": "#6da9e4",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#b6ede4",
+                    "tertiary-fixed": "#f6e0b3",
+                    "surface-dim": "#d9dadb",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-fixed-variant": "#164f49",
+                    "on-tertiary-fixed": "#251a01",
+                    "on-tertiary-container": "#463918",
+                    "secondary-fixed-dim": "#9bd1c8",
+                    "tertiary-fixed-dim": "#d9c499",
+                    "on-tertiary-fixed-variant": "#534524",
+                    "inverse-primary": "#9acbff",
+                    "tertiary-container": "#b5a279",
+                    "outline": "#717880",
+                    "primary-fixed-dim": "#9acbff",
+                    "on-primary-fixed": "#001d34",
+                    "inverse-on-surface": "#f0f1f2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "touch-target-min": "64px",
+                    "gutter": "24px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Quicksand"],
+                    "label-lg": ["Quicksand"],
+                    "headline-lg-mobile": ["Quicksand"],
+                    "headline-lg": ["Quicksand"],
+                    "headline-md": ["Quicksand"],
+                    "body-md": ["Quicksand"]
+            },
+            "fontSize": {
+                    "body-lg": ["24px", {"lineHeight": "36px", "fontWeight": "500"}],
+                    "label-lg": ["20px", {"lineHeight": "24px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "42px", "fontWeight": "600"}],
+                    "body-md": ["18px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        
+        .shadow-pop-green {
+            box-shadow: 0 6px 0 0 #28544d;
+        }
+        .shadow-pop-green:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 0 #28544d;
+        }
+        
+        .shadow-pop-blue {
+            box-shadow: 0 6px 0 0 #12446a;
+        }
+        .shadow-pop-blue:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 0 #12446a;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fbd38d;
+            border-radius: 2px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.3; }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden relative min-h-screen">
+<!-- Hero Background Layer -->
+<div class="fixed inset-0 z-0 opacity-40 pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="A warm and cheerful kindergarten classroom blurred in the background, featuring colorful educational posters, small wooden desks, and soft sunlight streaming through the window. The atmosphere is nurturing and playful, with pastel tones of cream and light wood dominating the scene. The setting evokes a safe learning environment for children, filled with joy and encouragement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHaD6G35mylLcT8SmJ3ti--x8Vn6G8EItFD0diQ-C8g9xs2InjHqOWDJW1nIS8fCcrBBlWeahBcNGUxYmVD-aV-yLySY0lCD2WP2rUan8AZ2Wjc4a9HI5ImaAi6SNzhzy3pklvDpQgoYz93og6l-mf1jcPKAN3516OWzFr-yHx8fwCyrYUqMDvP6a0N6o9etEZ-etaZaCwf-XgIZZrjmJ0Wnlcxg_ogzRSLPS5jsvXuiUKnXG5IGzfVqZnztsvW7pKQZGv9-_CXvA"/>
+</div>
+<!-- Confetti Particles -->
+<div class="fixed inset-0 pointer-events-none z-10" id="confetti-container"></div>
+<!-- Top Navigation (Shell Implementation) -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-50 bg-background/80 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">face_6</span>
+<h1 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Wise Gadget Guide</h1>
+</div>
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">settings</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative z-20 flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop py-12 min-h-[calc(100vh-160px)]">
+<!-- Score Celebration Section -->
+<section class="text-center mb-12 floating">
+<h2 class="font-headline-md text-primary text-headline-md mb-4">Skor Akhir</h2>
+<div class="inline-block bg-surface-container-lowest border-8 border-secondary-container rounded-full px-12 py-8 shadow-xl mb-6">
+<span class="font-headline-lg text-[64px] md:text-[96px] text-secondary tracking-tighter">10 / 10</span>
+</div>
+<p class="font-headline-md text-on-surface-variant text-headline-md">Selamat! Kamu hebat! 🌟</p>
+</section>
+<!-- Leaderboard Card -->
+<section class="w-full max-w-2xl bg-surface-container-lowest rounded-[32px] p-8 shadow-2xl border-4 border-surface-container-high mb-12">
+<div class="flex items-center justify-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+<h3 class="font-headline-md text-primary text-headline-md text-center">Leaderboard</h3>
+</div>
+<div class="space-y-4">
+<!-- Rank 1 (The User usually) -->
+<div class="flex items-center justify-between p-4 bg-primary-container/20 rounded-2xl border-2 border-primary-container">
+<div class="flex items-center gap-4">
+<span class="font-label-lg text-primary text-label-lg">1.</span>
+<span class="font-label-lg text-on-surface text-label-lg">Ahnaf (Kamu)</span>
+</div>
+<span class="font-label-lg text-secondary text-label-lg">10/10</span>
+</div>
+<!-- Rank 2 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-2xl">
+<div class="flex items-center gap-4">
+<span class="font-label-lg text-on-surface-variant text-label-lg">2.</span>
+<span class="font-label-lg text-on-surface text-label-lg">Rina</span>
+</div>
+<span class="font-label-lg text-on-surface-variant text-label-lg">8/10</span>
+</div>
+<!-- Rank 3 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-2xl">
+<div class="flex items-center gap-4">
+<span class="font-label-lg text-on-surface-variant text-label-lg">3.</span>
+<span class="font-label-lg text-on-surface text-label-lg">Budi</span>
+</div>
+<span class="font-label-lg text-on-surface-variant text-label-lg">7/10</span>
+</div>
+<!-- Rank 4 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-2xl">
+<div class="flex items-center gap-4">
+<span class="font-label-lg text-on-surface-variant text-label-lg">4.</span>
+<span class="font-label-lg text-on-surface text-label-lg">Sari</span>
+</div>
+<span class="font-label-lg text-on-surface-variant text-label-lg">6/10</span>
+</div>
+<!-- Rank 5 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-2xl">
+<div class="flex items-center gap-4">
+<span class="font-label-lg text-on-surface-variant text-label-lg">5.</span>
+<span class="font-label-lg text-on-surface text-label-lg">Dimas</span>
+</div>
+<span class="font-label-lg text-on-surface-variant text-label-lg">5/10</span>
+</div>
+</div>
+</section>
+<!-- Action Buttons -->
+<div class="flex flex-col md:flex-row gap-8 w-full max-w-2xl">
+<button class="flex-1 min-h-[64px] bg-secondary text-on-secondary rounded-2xl font-label-lg text-label-lg shadow-pop-green transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">refresh</span>
+                Main Ulang
+            </button>
+<button class="flex-1 min-h-[64px] bg-primary text-on-primary rounded-2xl font-label-lg text-label-lg shadow-pop-blue transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">home</span>
+                Menu Utama
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation (Shell Implementation) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container-lowest border-t-4 border-surface-container-high shadow-[0_-4px_10px_rgba(0,0,0,0.05)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:bg-surface-container-low transition-colors px-6 py-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-lg text-label-lg">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-6 py-2 border-b-4 border-secondary translate-y-1 transition-all duration-100" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+<span class="font-label-lg text-label-lg">Trophy</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:bg-surface-container-low transition-colors px-6 py-2" href="#">
+<span class="material-symbols-outlined">shield_with_heart</span>
+<span class="font-label-lg text-label-lg">Safety</span>
+</a>
+</nav>
+<script>
+        // Simple Confetti Generator
+        const container = document.getElementById('confetti-container');
+        const colors = ['#FFD700', '#FF69B4', '#00BFFF', '#32CD32', '#FFA500'];
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            
+            // Randomize position and animation
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            confetti.style.width = (Math.random() * 8 + 6) + 'px';
+            confetti.style.height = confetti.style.width;
+            
+            container.appendChild(confetti);
+            
+            // Remove after animation
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+
+        // Generate confetti periodically
+        setInterval(createConfetti, 150);
+
+        // Initial burst
+        for(let i = 0; i < 30; i++) {
+            setTimeout(createConfetti, Math.random() * 1000);
+        }
+    </script>
+</body></html>
